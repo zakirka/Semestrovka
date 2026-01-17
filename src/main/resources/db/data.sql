@@ -1,0 +1,27 @@
+INSERT INTO menu_items (name, description, price, image_url, category_id)
+VALUES
+('Лагман', 'Густой суп с лапшой, мясом и овощами', 350.00, '/images/lagman.jpg',
+ (SELECT id FROM categories WHERE name = 'Супы')),
+('Шурпа', 'Наваристый суп с бараниной и овощами', 380.00, '/images/shurpa.jpg',
+ (SELECT id FROM categories WHERE name = 'Супы')),
+('Плов', 'Традиционный узбекский плов с бараниной', 450.00, '/images/plov.jpg',
+ (SELECT id FROM categories WHERE name = 'Горячие блюда')),
+('Манты', 'Парные пельмени с мясной начинкой', 320.00, '/images/manty.jpg',
+ (SELECT id FROM categories WHERE name = 'Горячие блюда')),
+('Шашлык из баранины', 'Нежное мясо молодого барашка', 480.00, '/images/lamb-shashlik.jpg',
+ (SELECT id FROM categories WHERE name = 'Шашлыки')),
+('Шашлык из курицы', 'Куриное филе в специях', 320.00, '/images/chicken-shashlik.jpg',
+ (SELECT id FROM categories WHERE name = 'Шашлыки')),
+('Салат Восточный', 'Свежие овощи с зеленью и специями', 280.00, '/images/eastern-salad.jpg',
+ (SELECT id FROM categories WHERE name = 'Салаты')),
+('Салат с баклажанами', 'Запеченные баклажаны с орехами', 290.00, '/images/eggplant-salad.jpg',
+ (SELECT id FROM categories WHERE name = 'Салаты')),
+('Лепешка тандырная', 'Свежая лепешка из тандыра', 80.00, '/images/tandyr-bread.jpg',
+ (SELECT id FROM categories WHERE name = 'Выпечка')),
+('Самса с мясом', 'Слоеные пирожки с мясной начинкой', 120.00, '/images/samsa.jpg',
+ (SELECT id FROM categories WHERE name = 'Выпечка')),
+('Зеленый чай', 'Ароматный зеленый чай', 100.00, '/images/green-tea.jpg',
+ (SELECT id FROM categories WHERE name = 'Напитки')),
+('Чай с травами', 'Травяной сбор восточных трав', 120.00, '/images/herbal-tea.jpg',
+ (SELECT id FROM categories WHERE name = 'Напитки'))
+ON CONFLICT (name) DO NOTHING;
