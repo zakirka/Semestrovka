@@ -73,7 +73,7 @@ public class OrderServiceImpl implements OrderService {
 
             for (OrderItem orderItem : orderItems) {
                 MenuItem menuItem = menuItemDAO.findById(orderItem.getMenuItemId()).orElse(null);
-                orderItem.setMenuItem(menuItem); // ЗАГРУЖАЕМ MenuItem
+                orderItem.setMenuItem(menuItem);
             }
 
             order.setOrderItems(orderItems);

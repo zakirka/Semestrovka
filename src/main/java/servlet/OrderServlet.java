@@ -368,7 +368,6 @@ public class OrderServlet extends HttpServlet {
                 orderService.update(order);
                 System.out.println("DEBUG CHECKOUT: Order saved with user_id: " + order.getUserId());
 
-                // Проверяем, что user_id сохранился
                 Order updatedOrder = orderService.findById(order.getId()).orElse(null);
                 if (updatedOrder != null) {
                     System.out.println("DEBUG CHECKOUT: Verified order user_id in DB: " + updatedOrder.getUserId());
@@ -512,7 +511,6 @@ public class OrderServlet extends HttpServlet {
             System.out.println("DEBUG: Creating new order");
             order = orderService.createOrder();
 
-            // Сразу устанавливаем user_id если пользователь авторизован
             User user = (User) session.getAttribute("user");
             if (user != null) {
                 Long userId = getUserIdFromUser(user);
@@ -520,7 +518,6 @@ public class OrderServlet extends HttpServlet {
                     order.setUserId(userId);
                     System.out.println("DEBUG: Set user_id to " + userId + " on order creation");
 
-                    // Сохраняем заказ с user_id сразу
                     try {
                         orderService.update(order);
                         System.out.println("DEBUG: Order created with user_id: " + order.getUserId());

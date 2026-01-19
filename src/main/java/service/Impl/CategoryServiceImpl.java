@@ -14,7 +14,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryDAO categoryDAO;
 
     public CategoryServiceImpl() {
-        this.categoryDAO = new CategoryDAOImpl(); // Создаем DAO внутри
+        this.categoryDAO = new CategoryDAOImpl();
     }
 
     public CategoryServiceImpl(CategoryDAO categoryDAO) {
